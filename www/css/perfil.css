@@ -1,0 +1,57 @@
+.perf {
+    height: 85px;
+    width: 85px;
+    background-image: url(../img/perf.png);
+    background-size: cover;
+    background-position: center;
+    border-radius: 3em;
+    margin: 0 auto;
+    left: 39%;
+    position: absolute;
+}
+
+.perf i {
+    margin-left: 1.5em;
+    margin-top: 1em;
+    background-color: transparent !important;
+    color: #ff4081 !important;
+    opacity: .8;
+}
+
+.change_photo {
+    margin-top: 7.7em;
+}
+
+.foto {
+    margin: 0;
+}
+
+
+
+.change_datos {
+    margin-bottom: 2em;
+}
+
+.change_datos form button {
+    background-color: #ff4081;
+    color: white;
+    float: right;
+}
+.select-icon{
+    display: none; 
+    margin: 0 auto;
+}
+.select-icon ul{
+    padding-left: 0; 
+}
+
+.comentarios{
+    margin-bottom: 0;
+}
+.ficha{
+    padding-bottom: 0;
+}
+.mdl-textfield{
+    display: block;
+    margin: 0 auto;
+}

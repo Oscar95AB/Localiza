@@ -1,0 +1,128 @@
+.neg {
+    font-weight: 900;
+}
+
+.ficha ul:nth-child(1) {
+    list-style: none;
+    padding: 0;
+    margin-top: 5em;
+}
+
+.ficha ul:nth-child(1) li {
+    text-align: center;
+    margin-bottom: 2em;
+}
+
+.ficha ul:nth-child(1) li:nth-child(3) {
+    width: 5em;
+    margin: 0 auto;
+    border: 1px solid #517698;
+    padding: 1em;
+    border-radius: 1em;
+    -webkit-box-shadow: 22px 12px 55px -10px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 22px 12px 55px -10px rgba(0, 0, 0, 0.75);
+    box-shadow: 22px 12px 55px -10px rgba(0, 0, 0, 0.75);
+    margin-bottom: 7em;
+}
+
+.ficha ul:nth-child(1) li i {
+    background-color: white !important;
+    font-size: 4em;
+    width: 100% !important;
+}
+
+.ficha ul:nth-child(1) li span {
+    display: inherit;
+}
+
+.ficha ul:nth-child(1) li:nth-child(1) i {
+    margin-top: 1.5em;
+    color: #FF4081 !important;
+}
+
+.ficha ul:nth-child(1) li:nth-child(2) i {
+    color: #75D4C2 !important;
+}
+
+.ficha ul:nth-child(1) li:nth-child(3) i {
+    color: #517698;
+}
+
+.ficha ul:nth-child(1) li:nth-child(3) a {
+    text-decoration: none;
+    color: black;
+    font-family: "Helvetica", "Arial", sans-serif;
+    font-weight: 400;
+}
+
+.comentario span {
+    display: block;
+    font-size: 26px;
+}
+
+.mdl-list__item-secondary-action {
+    padding-bottom: .5em;
+}
+
+.formulario label {
+    font-size: 1.1em !important;
+}
+
+.formulario button {
+    float: right;
+    background-color: #ff4081;
+    color: white;
+}
+
+.formulario textarea {
+    height: 9em;
+}
+
+.formulario .valoracion {
+    float: left;
+}
+
+.formulario .valoracion i {
+    font-size: 2.5em;
+}
+
+.puntuacion {
+    font-size: 5em;
+    margin: 1em 0;
+}
+
+
+/*Estrellas del formulario*/
+
+input[type="radio"] {
+    display: none;
+}
+
+.valoracion label {
+    color: #757575 !important;
+    opacity: .7;
+}
+
+.valoracion {
+    direction: rtl;
+    unicode-bidi: bidi-override;
+}
+
+input[type="radio"]:checked ~ label {
+    color: #F6D681 !important;
+    opacity: 1;
+}
+
+.expand {
+    opacity: .7;
+    color: #FFF;
+    float: right;
+    margin-top: -2em;
+    background-color: #ff4081;
+    border-radius: 2em;
+    padding: .2em;
+}
+
+.mdl-list__item-secondary-content {
+    margin-top: 2em;
+}

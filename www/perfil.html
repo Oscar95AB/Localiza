@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <title>Busca Localización</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--<link rel="shortcut icon" href="/favicon.ico" />
+         <link rel="alternate" title="Pozolería RSS" type="application/rss+xml" href="/feed.rss" />-->
+    <link rel="stylesheet" href="vendor/mdl/material.min.css">
+    <script src="vendor/mdl/material.min.js"></script>
+    <script src="js/perfil.js"></script>
+    <script src="js/register_modify.js"></script>
+    <link rel="stylesheet" href="vendor/mdl/material.light_blue-light_green.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link href='http://fonts.googleapis.com/css?family=Roboto:400,300,300italic,500,400italic,700,700italic' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="css/comun.css">
+    <link rel="stylesheet" href="css/perfil.css">
+</head>
+
+<body onload = "iniciar();">
+
+    <!--<a href="index.html" class="mdl-button"><i class="material-icons mdl-list__item-avatar atras">arrow_back</i></a>-->
+    <button class="mdl-button atras" onClick="window.history.back();"><i class="material-icons">arrow_back</i></button>
+
+    <div class="header">
+        <div class="foto"></div>
+
+        <div class="change_photo">
+            <a  class="perf"><i class="material-icons mdl-list__item-avatar">edit</i></a>
+        </div>
+        <div class="select-icon" style="display: none;">
+            <h1>Selecciona el icono de perfil:</h1>
+                <ul>
+                    <li class="active"><a ><i class="material-icons mdl-list__item-avatar">android</i></a></li>
+                    <li><a><i class="material-icons mdl-list__item-avatar">face</i></a></li>
+                    <li><a><i class="material-icons mdl-list__item-avatar">extension</i></a></li>
+                    <li><a><i class="material-icons mdl-list__item-avatar">tag_faces</i></a></li>
+                    <li><a><i class="material-icons mdl-list__item-avatar">directions_runs</i></a></li>
+                    <li><a><i class="material-icons mdl-list__item-avatar">adb</i></a></li>
+                    <li><a><i class="material-icons mdl-list__item-avatar">child_care</i></a></li>
+                    <li><a><i class="material-icons mdl-list__item-avatar">mood</i></a></li> 
+                </ul>
+        </div>
+    </div>
+    <div class="ficha">
+        <div class="change_datos" style="margin-top:7em">
+            <h1>Modificar datos:</h1>
+            <form action="perfil.html">
+                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                    <input class="mdl-textfield__input" type="text" id="user" />
+                    <label class="mdl-textfield__label" for="user">Nombre<span class="obligatory">*</span></label>
+                </div>
+                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                    <input class="mdl-textfield__input" type="text" id="apel" />
+                    <label class="mdl-textfield__label" for="apel">Apellidos<span class="obligatory">*</span></label>
+                </div>
+                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                    <input class="mdl-textfield__input" type="password" id="o_pass" />
+                    <label class="mdl-textfield__label" for="o_pass">Contraseña antigua<span class="obligatory">*</span></label>
+                </div>
+                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                    <input class="mdl-textfield__input" type="password" id="n_pass" />
+                    <label class="mdl-textfield__label" for="n_pass">Contraseña nueva<span class="obligatory">*</span></label>
+                </div>
+
+                <button type="submit" class="mdl-button mdl-button--fab mdl-js-button mdl-js-ripple-effect"><i class="material-icons">send</i></button>
+
+            </form>
+        </div>
+
+        <div class="comentarios">
+            <h1>Últimos comentarios: </h1>
+
+            <ul class="demo-list-two mdl-list">
+                <li class="comentario">
+                    <a class="link_ficha" data-toggle="ficha_uno">
+                        <span class="mdl-list__item-primary-content">
+                              <i class="material-icons mdl-list__item-avatar">where_to_vote</i>
+                              <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+                          </span>
+                        <span class="mdl-list__item-secondary-content">
+                              <span class="mdl-list__item-secondary-action" href="#">
+                                <i class="material-icons" style="color: #F6D681;"> star </i>
+                                <i class="material-icons" style="color: #F6D681;"> star </i>
+                                <i class="material-icons" style="color: #F6D681;"> star </i>
+                                <i class="material-icons" style="color: #F6D681;"> star </i>
+                                <i class="material-icons" style="color: #F6D681;"> star </i>
+                              </span>
+                        </span>
+                    </a>
+                </li>
+                <li class="comentario">
+                    <a class="link_ficha" data-toggle="ficha_uno">
+                        <span class="mdl-list__item-primary-content">
+                              <i class="material-icons mdl-list__item-avatar">where_to_vote</i>
+                              <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.</p>
+                          </span>
+                        <span class="mdl-list__item-secondary-content">
+                              <span class="mdl-list__item-secondary-action" href="#">
+                                <i class="material-icons" style="color: #F6D681;"> star </i>
+                                <i class="material-icons" style="color: #F6D681;"> star </i>
+                                <i class="material-icons" style="color: #757575;opacity:0.7;"> star </i>
+                                <i class="material-icons" style="color: #757575;opacity:0.7;"> star </i>
+                                <i class="material-icons" style="color: #757575;opacity:0.7;"> star </i>
+                              </span>
+                        </span>
+                    </a>
+                </li>
+                <li class="comentario">
+                    <a class="link_ficha" data-toggle="ficha_uno">
+                        <span class="mdl-list__item-primary-content">
+                              <i class="material-icons mdl-list__item-avatar">where_to_vote</i>
+                              <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+                          </span>
+                        <span class="mdl-list__item-secondary-content">
+                              <span class="mdl-list__item-secondary-action" href="#">
+                                <i class="material-icons" style="color: #F6D681;"> star </i>
+                                <i class="material-icons" style="color: #757575;opacity:0.7;"> star </i>
+                                <i class="material-icons" style="color: #757575;opacity:0.7;"> star </i>
+                                <i class="material-icons" style="color: #757575;opacity:0.7;"> star </i>
+                                <i class="material-icons" style="color: #757575;opacity:0.7;"> star </i>
+                              </span>
+                        </span>
+                    </a>
+                </li>
+                <li class="icono">
+                    <i class="material-icons"> expand_more </i>
+                </li>
+            </ul>
+        </div>
+
+</body>
+
+</html>

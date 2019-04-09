@@ -1,0 +1,125 @@
+h1{
+    font-size: 2em;
+    text-align: center;
+}
+
+/*Botón atrás*/
+.atras{
+   	z-index: 1000;
+    position: fixed;
+    border-radius: 4em;
+    background-color: #ff4081;
+    height: 4em;
+    width: 4em;
+    color: white;
+ 
+    left: 1em;
+}
+
+/*Foto de perfil*/
+.foto{
+	width: 100%;
+	height: 10em;
+	background-image: url("../img/fondo_m.jpg");
+	background-size: contain;
+	position: absolute;
+	background-attachment: fixed;
+	top: 0;
+}
+/*Cuerpo*/
+.ficha{
+	text-align: center;
+	padding: 1em 1em 10em 1em;
+}
+.comentarios{
+	padding: 2em;
+	text-align: center;
+	margin-bottom: 4em;
+
+}
+.star{
+	text-align: center;
+	margin: 0 auto;
+}
+.star i{
+	color: #F6D681 !important;
+	font-size: 46px !important;
+}
+.star i:nth-child(5){
+	color: #757575 !important;
+	opacity: .7;
+}
+
+/*Selecciona icono*/
+.select-icon{
+
+    padding-top: 7em;
+    left: 5%;
+    top: 190px;
+    width: 90%;
+    border-bottom: 1px solid;
+}
+.select-icon ul li{
+	list-style: none;
+	width: 39%;
+	display: inline-block;
+	text-align: center;
+	padding: 1em;
+	opacity: .3;
+}
+.select-icon ul .active{
+		opacity: 1;
+}
+.select-icon ul li a i{
+	background-color: transparent !important;
+	color: black !important;
+}
+.select-icon ul .active a i{
+	background-color: #ff4081 !important;
+	color: white !important;
+	width: 2em;
+
+}
+
+/*Comentarios*/
+.comentario{
+	margin-top: 4em;
+	border-bottom: 2px solid ;
+	padding: 1em;
+	padding-bottom: 0;
+	border-radius: 1em;
+
+}
+.comentario:nth-child(1){
+	margin-top: 1em;
+	border-color: #C8656F;
+}
+.comentario:nth-child(2){
+	border-color: #517698;
+}
+.comentario:nth-child(3){
+	border-color: #DDA75D;
+}
+.comentario p{
+	text-align: justify;
+	color: black;
+}
+
+/*Otros*/
+.mdl-list__item-primary-content i{
+	float: left;
+	margin: .5em; 
+}
+.icono .material-icons{
+	font-size: 5em;
+	opacity: .5;
+}
+.change_datos{
+	margin-top: 0;
+}
+.ficha{
+	margin-top: 0 !important;
+}
+.obligatory{
+	color:red;
+}

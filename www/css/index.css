@@ -1,0 +1,283 @@
+/*Header*/
+
+header {
+    text-align: center;
+    padding-top: 1em;
+    padding-bottom: 1em;
+    position: fixed;
+    height: 2em;
+    top: .5em;
+    width: 90%;
+    left: 5%;
+    z-index: 100;
+    background-color: white;
+    border-radius: 1em;
+    border: 2px solid #75757533;
+}
+
+header label {
+    display: none;
+}
+
+header input,
+header input:focus {
+    border: none;
+    font-size: 1.5em;
+    width: 60%;
+    text-align: left;
+    outline: none;
+    color: #757575;
+    border-right: 1px solid;
+}
+
+header i {
+    background-color: white;
+    color: #757575;
+    font-size: 2em !important;
+    position: absolute;
+    right: 6%;
+}
+
+
+/*menú lateral*/
+
+.mdl-layout__drawer-button {
+    z-index: 200;
+    position: fixed;
+    top: .25em;
+    font-size: 2em;
+    left: 7%;
+}
+
+.perf {
+    height: 85px;
+    width: 85px;
+    background-image: url(../img/perf.png);
+    background-size: cover;
+    background-position: center;
+    border-radius: 3em;
+    margin: 0 auto;
+}
+
+.mdl-layout__drawer {
+    z-index: 300;
+}
+
+.mdl-layout__obfuscator.is-visible {
+    z-index: 250;
+}
+
+.mdl-layout__drawer .mdl-navigation {
+    text-align: center;
+}
+
+.mdl-layout__drawer .mdl-navigation a i {
+    float: left;
+}
+
+.mdl-layout-title {
+    background-image: url("../img/fondo_m.jpg");
+    background-size: cover;
+    color: white;
+    text-align: center;
+    padding-top: 2em;
+}
+
+.mdl-layout-title .material-icons {
+    color: #fff;
+    background-color: transparent;
+    position: absolute;
+    top: 21px;
+    left: 21px;
+    font-size: 24px;
+}
+
+.mdl-layout__drawer>.mdl-layout__title,
+.mdl-layout__drawer>.mdl-layout-title {
+    padding-left: 0;
+}
+
+.mdl-button--icon {
+    position: absolute;
+    top: 18px;
+    right: 9px;
+}
+
+#lang-switcher .material-icons {
+    top: 50%;
+    right: 5px;
+    left: 50%;
+}
+
+dialog a {
+    margin-top: 1em;
+    float: left;
+    text-decoration: none;
+}
+
+
+/*Contenido de la página y mapa*/
+
+.page-content,
+#map {
+    width: 100%;
+    height: 100%;
+}
+
+#map {
+    position: fixed !important;
+}
+
+
+/*Utils texto*/
+
+.salto {
+    display: block;
+}
+
+
+/*Lista desplegable abajo*/
+
+.lista-menu {
+    position: absolute;
+    width: 100%;
+    background-color: white;
+    border-top-left-radius: 2em;
+    border-top-right-radius: 2em;
+    z-index: 200;
+}
+.lista-menu li{
+        position: sticky;
+}
+
+.lista-menu .mdl-menu__container.is-visible, 
+.lista-menu .mdl-menu__container.is-animating{
+    width: 87% !important;
+    margin: 0 auto;
+}
+
+.lista-menu .mdl-menu__container.is-visible .mdl-menu__outline{
+    width: 100% !important;
+}
+
+.lista-menu .mdl-menu__container.is-visible .mdl-menu{
+    width: 100%;
+    clip: rect(0px, 2000px, 364.75px, 0px) !important;
+}
+
+.lista-menu .filtro-parent {
+    position: absolute;
+    right: 1em;
+    top: -1em;
+    background-color: #757575;
+    padding: 1em;
+    border-radius: 3em;
+    z-index: 4;
+    color: white;
+    opacity: .8;
+}
+
+.lista-menu a {
+    width: 100%;
+    text-decoration: none;
+}
+
+.mdl-list {
+    padding: 8px 8px;
+}
+
+.mdl-list__item-primary-content {
+    float: left;
+}
+
+.mdl-list__item-secondary-content {
+    float: right;
+}
+
+.lista-menu li {
+    top: 5px;
+    background-color: white;
+}
+
+
+/*Color de la lista*/
+
+.lista-menu li i {
+    background-color: white !important;
+}
+
+.lista-menu li:nth-child(1) i,
+.lista-menu li:nth-child(1) a {
+    color: #C8656F;
+}
+
+.lista-menu li:nth-child(2) i,
+.lista-menu li:nth-child(2) a {
+    color: #517698;
+}
+
+.lista-menu li:nth-child(3) i,
+.lista-menu li:nth-child(3) a {
+    color: #DDA75D;
+}
+
+.lista-menu li:nth-child(4) i,
+.lista-menu li:nth-child(4) a {
+    color: #6EAA90;
+}
+
+.lista-menu li:nth-child(5) i,
+.lista-menu li:nth-child(5) a {
+    color: #E46E9D;
+}
+
+.lista-menu li:nth-child(6) i,
+.lista-menu li:nth-child(6) a {
+    color: #B9CF79;
+}
+
+.lista-menu li:nth-child(7) i,
+.lista-menu li:nth-child(7) a {
+    color: #EB8E6C;
+}
+
+.lista-menu li:nth-child(8) i,
+.lista-menu li:nth-child(8) a {
+    color: #75D4C2;
+}
+
+.lista-menu li:nth-child(9) i,
+.lista-menu li:nth-child(9) a {
+    color: #F6D681;
+}
+
+.lista-menu li:nth-child(10) i,
+.lista-menu li:nth-child(10) a {
+    color: #69A36F;
+}
+
+.lista-menu li:nth-child(11) i,
+.lista-menu li:nth-child(11) a {
+    color: #FF4081;
+}
+
+
+/* LOGIN */
+
+.mdl-button--fab {
+    background-color: #ff4081;
+    color: white;
+    float: right;
+    margin: .5em;
+}
+
+.mdl-menu_item {
+    padding: 1em;
+}
+.mdl-button--fab{
+        margin: 9px;
+}
+
+.mdl-switch.is-upgraded{
+    text-align: center;
+}

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <title>Busca Localización</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--<link rel="shortcut icon" href="/favicon.ico" />
+         <link rel="alternate" title="Pozolería RSS" type="application/rss+xml" href="/feed.rss" />-->
+    <link rel="stylesheet" href="vendor/mdl/material.min.css">
+    <script src="vendor/mdl/material.min.js"></script>
+    <script src="js/register_modify.js"></script>
+    <link rel="stylesheet" href="vendor/mdl/material.light_blue-light_green.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link href='http://fonts.googleapis.com/css?family=Roboto:400,300,300italic,500,400italic,700,700italic' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="css/comun.css">
+    <link rel="stylesheet" href="css/perfil.css">
+    <link rel="stylesheet" href="css/registro.css">
+</head>
+
+<body onload="iniciar();">
+
+    <!--<a href="index.html" class="mdl-button"><i class="material-icons mdl-list__item-avatar atras">arrow_back</i></a>-->
+    <button class="mdl-button atras" onClick="window.history.back();"><i class="material-icons">arrow_back</i></button>
+
+    <div class="header">
+        <div class="foto"></div>
+
+      
+        <div class="select-icon">
+            <h1>Selecciona el icono de perfil:</h1>
+                <ul>
+                    <li class="active"><a href="#"><i class="material-icons mdl-list__item-avatar">android</i></a></li>
+                    <li><a><i class="material-icons mdl-list__item-avatar">face</i></a></li>
+                    <li><a><i class="material-icons mdl-list__item-avatar">extension</i></a></li>
+                    <li><a><i class="material-icons mdl-list__item-avatar">tag_faces</i></a></li>
+                    <li><a><i class="material-icons mdl-list__item-avatar">directions_runs</i></a></li>
+                    <li><a><i class="material-icons mdl-list__item-avatar">adb</i></a></li>
+                    <li><a><i class="material-icons mdl-list__item-avatar">child_care</i></a></li>
+                    <li><a><i class="material-icons mdl-list__item-avatar">mood</i></a></li> 
+                </ul>
+        </div>
+    </div>
+    <div class="ficha">
+        <div class="change_datos">
+            <h1>Registro: </h1>
+            <form action="perfil.html">
+                 <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                    <input class="mdl-textfield__input" type="text" id="user" />
+                    <label class="mdl-textfield__label" for="user">Usuario <span class="obligatory">*</span></label>
+                </div>
+                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                    <input class="mdl-textfield__input" type="text" id="name" />
+                    <label class="mdl-textfield__label" for="name">Nombre <span class="obligatory">*</span></label>
+                </div>
+                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                    <input class="mdl-textfield__input" type="text" id="apel" />
+                    <label class="mdl-textfield__label" for="apel">Apellidos <span class="obligatory">*</span></label>
+                </div>
+                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                    <input class="mdl-textfield__input" type="password" id="password" />
+                    <label class="mdl-textfield__label" for="password">Contraseña <span class="obligatory">*</span></label>
+                </div>
+                
+                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                    <input class="mdl-textfield__input" type="date" id="fe_nac" />
+                    <label class="mdl-textfield__label" for="fe_nac" id="f_nac">Fecha de nacimiento <span class="obligatory">*</span></label>
+                </div>
+                <div class="radio-btn-form">
+                    <h4>Selecciona sexo: </h4>
+                    <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option-1">
+                        <input type="radio" id="option-1" class="mdl-radio__button" name="options" value="1">
+                        <span class="mdl-radio__label">Hombre</span>
+                    </label>
+                    <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option-2">
+                        <input type="radio" id="option-2" class="mdl-radio__button" name="options" value="2">
+                        <span class="mdl-radio__label">Mujer</span>
+                    </label>
+                    <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option-3">
+                        <input type="radio" id="option-3" class="mdl-radio__button" name="options" value="3">
+                        <span class="mdl-radio__label">Otro</span>
+                    </label>
+                </div>
+                <button type="submit" class="mdl-button mdl-button--fab mdl-js-button mdl-js-ripple-effect" id="env"><i class="material-icons">send</i></button>
+
+                <button id="demo-show-toast" class="mdl-button mdl-js-button mdl-button--raised" type="button">Show Toast</button>
+                <div id="demo-toast-example" class="mdl-js-snackbar mdl-snackbar">
+                    <div class="mdl-snackbar__text"></div>
+                    <button class="mdl-snackbar__action" type="button"></button>
+                </div>
+                <script>
+                    (function() {
+                        'use strict';
+                        var snackbarContainer = document.querySelector('#demo-toast-example');
+                        var showToastButton = document.querySelector('#demo-show-toast');
+                        showToastButton.addEventListener('click', function() {
+                            'use strict';
+                            var data = {
+                                message: 'Registrado con éxito '
+                            };
+                            snackbarContainer.MaterialSnackbar.showSnackbar(data);
+                        });
+                    }());
+                </script>
+
+            </form>
+        </div>
+
+</body>
+
+</html>

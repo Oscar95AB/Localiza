@@ -1,0 +1,29 @@
+
+
+/*Selecciona sexo*/
+.mdl-radio.is-upgraded{
+	margin-bottom: 2em;
+    width: 32%;
+}
+.radio-btn-form{
+	padding: 1em;
+}
+.radio-btn-form h4{
+	text-align: left;
+}
+
+.select-icon{
+	display: block;
+	 margin-top: 8em;
+}
+#fe_nac{
+	text-align: center;
+	text-transform: uppercase;
+}
+
+#f_nac{
+	top: 56px;
+    left: 8em;
+    width: auto;
+    font-size: 1em;
+}
