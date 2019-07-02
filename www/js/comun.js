@@ -29,7 +29,7 @@
 
  function registrarDialog(dialog, showModalButton){
     if (!dialog.showModal) {
-         dialogPolyfill.registerDialog(dialog);
+        // dialogPolyfill.registerDialog(dialog);
      }
 
      showModalButton.addEventListener('click', function() {
@@ -46,4 +46,5 @@
      posicionaLista();
      initMap();
      dialogForm();
+     froute(1,1,1,1);
  }
