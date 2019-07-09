@@ -129,33 +129,36 @@ dialog a {
 }
 
 .leaflet-touch .leaflet-control-layers, .leaflet-touch .leaflet-bar{
-  right: 0em;
-    right: -30em;  
+    right: -100%;  
     top: 6em;
     border-radius: 1em;
+		border: none;
 }
 .leaflet-top.leaflet-right .leaflet-routing-alternatives-container{
     z-index: 9999;
 }
 
 .indicaciones-trans{
-    transition-property: right;
-    transition-duration: 4s;
-    transition-delay: 0s;
+    transition:all 1s ease !important;
     right: 0em !important;
 }
 .leaflet-routing-container h2{
     display: none;
 }
 .leaflet-routing-container h3{
-    font-size: 14px;
+    font-size: 14px !important;
     position: absolute;
-    left:-15em;
+    left:-11em;
     padding: .5em;
     border-radius: 1em; 
     background-color: white;
 }
-
+.leaflet-routing-collapse-btn:after{
+	content: ''!important;
+}
+.leaflet-bar .leaflet-routing-alt:last-child{
+	font: 400 13.3333px Arial !important;
+}
 
 /*Utils texto*/
 

@@ -12,13 +12,20 @@
                       },
 
                       onAdd: function (map) {
-                            var geolocation = L.DomUtil.create('div', 'leaflet-bar leaflet-control leaflet-control-custom');
+                            var geolocation = L.DomUtil.create('i', 'material-icons leaflet-bar leaflet-control leaflet-control-custom');
 
                             geolocation.style.backgroundColor = 'white';
-                            geolocation.style.width = '30px';
-                            geolocation.style.height = '30px';
-                            geolocation.style.bottom = '10em';
-                            geolocation.style.border = 'none';
+														geolocation.style.color = '#757575';
+														geolocation.style.width = '47px';
+														geolocation.style.height = '30px';
+														geolocation.style.bottom = '5em';
+														geolocation.style.border = 'none';
+														geolocation.style.padding = '.5em .5em .2em';
+														geolocation.style.right = '-1em';
+														geolocation.style.top = 'auto';
+														geolocation.style.borderRadius = '0px';
+														geolocation.innerHTML = 'gps_fixed';
+													
 
                             geolocation.onclick = function(){
                                  map.locate({setView: true, maxZoom: 19});
@@ -28,22 +35,29 @@
 
                     });
  
-                var indicaciones = L.Control.extend({
+              /*  var indicaciones = L.Control.extend({
 
                       options: {
-                        position: 'bottomright' 
-                      /*  control position - allowed: 'topleft', 'topright', 'bottomleft', 'bottomright' */
+                        position: 'bottomright'  
                       },
 
                       onAdd: function (map) {
-                            var indicaciones = L.DomUtil.create('div', 'leaflet-bar leaflet-control leaflet-control-custom');
+                            var indicaciones = L.DomUtil.create('i', 'material-icons leaflet-bar leaflet-control leaflet-control-custom');
 
-                            indicaciones.style.backgroundColor = 'red';
-                            indicaciones.style.width = '30px';
-                            indicaciones.style.height = '30px';
-                            indicaciones.style.bottom = '11em';
-                            indicaciones.style.right = '0';
-                            indicaciones.style.border = 'none';
+                           	indicaciones.style.backgroundColor = 'white';
+														indicaciones.style.color = '#517698';
+														indicaciones.style.width = '47px';
+														indicaciones.style.height = '30px';
+														indicaciones.style.bottom = '5em';
+														indicaciones.style.border = 'none';
+														indicaciones.style.padding = '.5em .5em .2em';
+														indicaciones.style.top = 'auto';
+														indicaciones.style.right = '-1em';
+														indicaciones.style.borderRadius = '0px';
+														indicaciones.innerHTML = 'directions';
+												
+														
+														
 
                             indicaciones.onclick = function(){
                              muestra_ind();
@@ -51,7 +65,7 @@
                             return indicaciones;
                       }
 
-                    }); 
+                    }); */
 
 
  function initMap() {
@@ -72,7 +86,7 @@
      map.on('locationerror', onLocationError);
 
                     map.addControl(new geolocate());
-                    map.addControl(new indicaciones());
+                  //  map.addControl(new indicaciones());
                     map.locate({setView: true});
 
      addIcons([40.4447232, -3.6519936]);
@@ -90,7 +104,7 @@ function muestra_ind(){
     console.log(indicaciones);
 }
 
-var route;
+/*var route;
  //http://www.liedman.net/leaflet-routing-machine/api/
  function froute(pto11,pto12,pto21,pto22){
 
@@ -118,7 +132,7 @@ var route;
 
  function resetRoute() {
     route.setWaypoints([(0,0), (0,0)]);
- }
+ }*/
 var actualLoc;
  function onLocationFound(e) {
 
