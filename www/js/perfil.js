@@ -1,4 +1,6 @@
 
+
+
 function perf_app(){
 	document.getElementsByClassName('change_photo')[0].addEventListener('click', function(){
 
@@ -16,4 +18,3 @@ function perf_app(){
 
 	}); 
 }
-
