@@ -36,10 +36,10 @@ function dameLoc(){
 	
 
 		callOtherDomain(data_ubi);
-	
-	console.log('URL+DATOS: '+ url+'location/'+JSON.stringify(data_ubi));
+	var url_comp = url+'location/'+JSON.stringify(data_ubi);
+	console.log('URL+DATOS: '+ url_comp);
 		$.ajax({
-			url: url+'location/'+JSON.stringify(data_ubi),
+			url: url_comp,
 			type: 'GET',	
 			dataType:'json',
 			crossDomain: true,
@@ -93,8 +93,10 @@ function dameLoc(){
 
 function dameComentarios(id){
 var data_com = {"id":id};
+	var url_comp = url+'comentario/'+JSON.stringify(data_com);
+	console.log('DameComentarios URL: '+ url_comp)
 	$.ajax({
-			url: url+'comentario/'+JSON.stringify(data_com),
+			url: url_comp,
 			type: 'GET',	
 			dataType:'json',
 			crossDomain: true
@@ -115,7 +117,6 @@ var data_com = {"id":id};
 				
 				//PENDIENTE DE LA DIRECCION Y RETORNAR AL MAPA LA LAT Y LONG Y QUE TE LLEVE DIRECTAMENTE ALLI
 				
-				console.log(media);
 				media = media+parseInt(val);
 				
 				if(hora != ''){
@@ -157,9 +158,75 @@ var data_com = {"id":id};
 
 
 			media = 0;
-			});
+			}).fail(function(data) {
+    console.error('Llamada AJAX incompleta. Esto tendrás que controlarlo en algún momento xd.');
+		console.log(data);
+  }); 
 	
 }
+
+
+
+
+//Toma
+function tomaComentario(idC, idP, comentario, estrellas){
+	
+	
+	
+	var data_com = {"idC":idC,"idP":idP,"comentario":comentario,"estrellas":estrellas};
+		
+		callOtherDomain(data_ubi);
+	
+	var url_comp = url+'comentario/insert/'+JSON.stringify(data_com);
+	console.log('URL+DATOS: '+ url_comp);
+		$.ajax({
+			url: url_comp,
+			type: 'GET',	
+			dataType:'json',
+			crossDomain: true,
+		//	contentType: 'application/json; charset=utf-8'
+    }).success(
+			function(data) {		
+				console.log(data);	
+    })
+	.fail(function(data) {
+    console.error('Llamada AJAX incompleta. Esto tendrás que controlarlo en algún momento xd.');
+		console.log(data);
+  });
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 function login(user,pass){
 		console.log($('#user').val());
@@ -179,12 +246,10 @@ var data_com = {"user":user,"pass":pass};
 			sessionStorage.setItem('sex', data.sex);
 		
 		if(sessionStorage.getItem('id') != 'undefined'){
-			window.location="registro.html?perfil=true";
+			window.location="perfil.html?perfil=true";
 		}else{
 			console.log('usuario/contraseña inválido');
 		}
 		});
 	
 }
-
-

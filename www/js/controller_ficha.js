@@ -1,3 +1,6 @@
+var idC = '';
+var idP = sessionStorage.getItem('id');
+
 function iniciar(){
 	dynamic_star();
 	
@@ -9,33 +12,55 @@ function dynamic_star(){
 
 
 $(document).ready(function() {
-	var id = getParameterByName('id');
-		dameComentarios(id);
-	accionFormulario(id);
+	
+	
+	if(idP == null){
+		var mensaje_error = 'Para poder comentar tienes que registrarte';
+		$('.formulario textarea').prop('disabled', true);
+		$('.formulario .valoracion').hide();
+		$('.formulario button').prop('disabled', true);
+		$('.msjError').addClass('mostrarerr');
+				$('.msjError').empty().html(mensaje_error);
+	}
+	
+  idC	= getParameterByName('id');
+	dameComentarios(idC);
+	accionFormulario(idC);
 	
 											 
 });
 function accionFormulario(id){
 	$('#form_comentario').bind('submit',function(){
-			
 			var mensaje_error = '';
-			
+			$('.msjError').removeClass('ocultarerr');
+		
+			//errores
+		  var estrellas = $('.valoracion input[type="radio"]:checked ~ label').length;
+			if(estrellas == 0){
+				mensaje_error = 'Valoración: Seleccione al menos 1 estrella';
+			}
 			var texto = $("#comentario").val();
 			if(texto.length == 0 || texto.length > 30){
-				mensaje_error = 'comentario: 0-30 caracteres'; 
+				mensaje_error = 'Comentario: 0-30 caracteres'; 
 			}
-			var estrellas = $('.valoracion input[type="radio"]:checked ~ label').length;
-			if(estrellas == 0){
-				mensaje_error = 'debe seleccionar al menos 1 estrella';
-			}
-		
+			
+			
 			if(mensaje_error == ''){
-				console.log(estrellas);
-				console.log(texto);
-				console.log(id);
+				//ResetForm
+				$('.msjError').removeClass('mostrarerr');
+				$('#form_comentario')[0].reset();
+				//
+			var nombre = sessionStorage.getItem('nombre');
+			var sex = sessionStorage.getItem('sex');
+				
+				tomaComentario(idC, idP, texto, estrellas);
+				//Añadimos el comentario a la lista
+				rellenaComentariosChino(texto, idP, nombre,sex,estrellas);
+				
 			}else{
-				console.error(mensaje_error);
-				mensaje_error ='';
+				$('.msjError').addClass('mostrarerr');
+				$('.msjError').empty().html(mensaje_error);
+				mensaje_error = '';
 			}
 			//Enviamos por REST el comentario si devuelve 1 está OK si devuelve 0 está KO
 			
@@ -46,7 +71,6 @@ function accionFormulario(id){
 }
 
 function rellenaComentariosChino(comentario, id, nombre, sexo, valoracion){
-	
 		//Calcular estrellas
 	var total = $('<span>',{
 					'class': 'mdl-list__item-secondary-action',
@@ -115,7 +139,6 @@ function rellenaComentariosChino(comentario, id, nombre, sexo, valoracion){
 		
 ).hide().appendTo('#comentarios').fadeIn('slow');
 }
-
 
 /**
  * @param String name

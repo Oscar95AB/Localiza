@@ -22,12 +22,17 @@
  function dialogForm() {
      var dialog = document.getElementsByTagName('dialog');
      var showModalButton = document.getElementsByClassName('show-modal');
-
-     for(var i = 0; i<dialog.length;i++){
-        registrarDialog(dialog[i], showModalButton[i]);
+	 	 
+	 	 if( sessionStorage.getItem('id') == undefined ){
+			 registrarDialog(dialog[0], showModalButton[0]);
+		 }else{
+			 
+		 }
+	 	
+     for(var i = 1; i<dialog.length;i++){
+			 
+					 registrarDialog(dialog[i], showModalButton[i]); 
      }
-
-
  }
 
  function registrarDialog(dialog, showModalButton){
