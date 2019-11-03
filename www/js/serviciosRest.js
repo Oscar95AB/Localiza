@@ -109,12 +109,32 @@ var data_com = {"id":id};
 				var comentario = data[i].comentario;
 				var id = data[i].id;
 				var nombre = data[i].nombre;
+				var icono = data[i].icono;
 				var sexo = data[i].sex;
 				var val = data[i].valoracion;
 				var lat = data[i].lat;
 				var long = data[i].lon;
 				var hora = data[i].hora;
 				
+				var icon_selected = '';
+	
+			if(icono == '1'){
+				icon_selected = 'android';
+			}else if( icono == '2'){
+				icon_selected = 'face';
+			}else if( icono == '3'){
+				icon_selected = 'extension';
+			}else if( icono == '4'){
+				icon_selected = 'tag_faces';
+			}else if( icono == '5'){
+				icon_selected = 'directions_runs';
+			}else if( icono == '6'){
+				icon_selected = 'adb';
+			}else if( icono == '7'){
+				icon_selected = 'child_care';
+			}else if( icono == '8'){
+				icon_selected = 'mood';
+			}
 				//PENDIENTE DE LA DIRECCION Y RETORNAR AL MAPA LA LAT Y LONG Y QUE TE LLEVE DIRECTAMENTE ALLI
 				
 				media = media+parseInt(val);
@@ -122,7 +142,7 @@ var data_com = {"id":id};
 				if(hora != ''){
 					$('#hour').empty().append(hora);
 				}
-				rellenaComentariosChino(comentario, id, nombre, sexo, val);
+				rellenaComentariosChino(comentario, id, nombre, sexo, val,icon_selected);
 			}
 		
 		 media = media/data.length;
@@ -238,17 +258,42 @@ var data_com = {"user":user,"pass":pass};
 			dataType:'json',
 			crossDomain: true
     }).success(function(data) {	
+		
+		var icon_selected = '';
+	
+			if(data.icono == '1'){
+				icon_selected = 'android';
+			}else if( data.icono == '2'){
+				icon_selected = 'face';
+			}else if( data.icono == '3'){
+				icon_selected = 'extension';
+			}else if( data.icono == '4'){
+				icon_selected = 'tag_faces';
+			}else if( data.icono == '5'){
+				icon_selected = 'directions_runs';
+			}else if( data.icono == '6'){
+				icon_selected = 'adb';
+			}else if( data.icono == '7'){
+				icon_selected = 'child_care';
+			}else if( data.icono == '8'){
+				icon_selected = 'mood';
+			}
 			
 			sessionStorage.setItem('id', data.id);
 			sessionStorage.setItem('nombre', data.nombre);
 			sessionStorage.setItem('apellido', data.apellido);
 			sessionStorage.setItem('icono', data.icono);
+			sessionStorage.setItem('icono_select', icon_selected);
 			sessionStorage.setItem('sex', data.sex);
 		
 		if(sessionStorage.getItem('id') != 'undefined'){
 			window.location="perfil.html?perfil=true";
 		}else{
-			console.log('usuario/contraseña inválido');
+			var mensaje_error = 'usuario/contraseña inválido';
+			$('#div_login div')[0].className += ' is-dirty is-invalid';
+			$('#div_login div')[1].className += ' is-dirty is-invalid';
+			$('.msjError').addClass('mostrarerr');
+				$('.msjError').empty().html(mensaje_error);
 		}
 		});
 	

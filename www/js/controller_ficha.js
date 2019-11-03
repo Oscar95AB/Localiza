@@ -14,7 +14,7 @@ function dynamic_star(){
 $(document).ready(function() {
 	
 	
-	if(idP == null){
+	if(idP == null || idP == "undefined"){
 		var mensaje_error = 'Para poder comentar tienes que registrarte';
 		$('.formulario textarea').prop('disabled', true);
 		$('.formulario .valoracion').hide();
@@ -29,6 +29,7 @@ $(document).ready(function() {
 	
 											 
 });
+
 function accionFormulario(id){
 	$('#form_comentario').bind('submit',function(){
 			var mensaje_error = '';
@@ -37,16 +38,22 @@ function accionFormulario(id){
 			//errores
 		  var estrellas = $('.valoracion input[type="radio"]:checked ~ label').length;
 			if(estrellas == 0){
+				$('#form_comentario .valoracion').css('border-bottom','1px solid #d50000');
 				mensaje_error = 'Valoración: Seleccione al menos 1 estrella';
+			}else{
+				$('#form_comentario .valoracion').css('border-bottom','1px solid transparent');
 			}
 			var texto = $("#comentario").val();
+		
 			if(texto.length == 0 || texto.length > 30){
+					$('#form_comentario div')[0].className += ' is-dirty is-invalid';
 				mensaje_error = 'Comentario: 0-30 caracteres'; 
 			}
 			
 			
 			if(mensaje_error == ''){
 				//ResetForm
+				$('#form_comentario .valoracion').css('border-bottom','1px solid transparent');
 				$('.msjError').removeClass('mostrarerr');
 				$('#form_comentario')[0].reset();
 				//
@@ -70,7 +77,7 @@ function accionFormulario(id){
 	});
 }
 
-function rellenaComentariosChino(comentario, id, nombre, sexo, valoracion){
+function rellenaComentariosChino(comentario, id, nombre, sexo, valoracion, icon){
 		//Calcular estrellas
 	var total = $('<span>',{
 					'class': 'mdl-list__item-secondary-action',
@@ -116,7 +123,7 @@ function rellenaComentariosChino(comentario, id, nombre, sexo, valoracion){
 			}).append(
           	$('<i>',{
             	'class':'material-icons mdl-list__item-avatar',
-            	'text':'insert_emoticon',
+            	'text': icon,
 							'style': 'color:'+color+';background-color:transparent;margin: 0 .5em .5em 0;font-size: 60px;'
           	})).append(
 							$('<p>',{

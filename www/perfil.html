@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!--<link rel="shortcut icon" href="/favicon.ico" />
          <link rel="alternate" title="Pozolería RSS" type="application/rss+xml" href="/feed.rss" />-->
+	<script src="vendor/Jquery/jquery-1.8.2.min.js"></script>
     <link rel="stylesheet" href="vendor/mdl/material.min.css">
     <script src="vendor/mdl/material.min.js"></script>
     <script src="js/perfil.js"></script>
@@ -27,12 +28,12 @@
         <div class="foto"></div>
 
         <div class="change_photo">
-            <a  class="perf"><i class="material-icons mdl-list__item-avatar">edit</i></a>
+            <a class="perf"><i class="material-icons mdl-list__item-avatar"></i><i class="material-icons mdl-list__item-avatar">edit</i></a>
         </div>
         <div class="select-icon" style="display: none;">
             <h1>Selecciona el icono de perfil:</h1>
-                <ul>
-                    <li class="active"><a ><i class="material-icons mdl-list__item-avatar">android</i></a></li>
+                <ul id="iconos">
+                    <li><a ><i class="material-icons mdl-list__item-avatar">android</i></a></li>
                     <li><a><i class="material-icons mdl-list__item-avatar">face</i></a></li>
                     <li><a><i class="material-icons mdl-list__item-avatar">extension</i></a></li>
                     <li><a><i class="material-icons mdl-list__item-avatar">tag_faces</i></a></li>
@@ -46,7 +47,7 @@
     <div class="ficha">
         <div class="change_datos" style="margin-top:7em">
             <h1>Modificar datos:</h1>
-            <form action="perfil.html">
+            <form action="perfil.html" id="perf_form">
                 <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                     <input class="mdl-textfield__input" type="text" id="user" />
                     <label class="mdl-textfield__label" for="user">Nombre<span class="obligatory">*</span></label>

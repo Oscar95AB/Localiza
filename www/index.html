@@ -63,19 +63,19 @@
 										onclick="idioma('en');" id="en">Inglés</li>
                     <li class="mdl-menu__item" onclick="idioma('fr');" id="fr">Francés</li>
                 </ul>
-                <a href="#"><i class="material-icons mdl-list__item-avatar">power_off</i></a>
-                <div class="perf"></div>
-							<span id="welcome">Bienvenid@, </span><span class="salto" id="name">Nombre
+                <a><i class="material-icons mdl-list__item-avatar disconect">power_off</i></a>
+                <div class="perf"><i class="material-icons mdl-list__item-avatar"></i> </div>
+							<span id="welcome">Bienvenid@ </span><span class="salto" id="name">
             </span>
             </div>
             <nav class="mdl-navigation">
                 <a class="mdl-navigation__link show-modal"><i class="material-icons mdl-list__item-icon">face</i><span id="count">Cuenta</span></a>
                 <dialog class="mdl-dialog">
                     <div class="mdl-dialog__content">
-                        <form>
+                        <form id="div_login">
                             <h3 id="log_tittle">Accede</h3>
                             <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                                <input class="mdl-textfield__input" type="text" id="user" />
+                                <input class="mdl-textfield__input" type="text" id="user" pattern="[A-Z,a-z]*"/>
                                 <label class="mdl-textfield__label" for="user" id="log_user">Usuario</label>
                             </div>
                             <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
@@ -85,12 +85,12 @@
                             <a id="login" class="mdl-button mdl-button--fab mdl-js-button mdl-js-ripple-effect"><i class="material-icons">send</i></a>
                             <button type="button" class="mdl-button mdl-button--fab mdl-js-button mdl-js-ripple-effect close"><i class="material-icons">close</i></button>
                             <a href="registro.html"> <i class="material-icons" style="font-size: 2em;">person_add</i> </a>
-
+															<div class="msjError"></div> 
                         </form>
                     </div>
                 </dialog>
 
-                <a class="mdl-navigation__link show-modal"><i class="material-icons mdl-list__item-icon">build</i><span id="settings">Configuración</span></a>
+                <a class="mdl-navigation__link show-modal disconect"><i class="material-icons mdl-list__item-icon">build</i><span id="settings">Configuración</span></a>
                <dialog class="mdl-dialog">
                     <div class="mdl-dialog__content">
 
@@ -126,7 +126,7 @@
                             
                     </div>
                 </dialog>
-                <a class="mdl-navigation__link show-modal"><i class="material-icons mdl-list__item-icon">add_location</i><span id="add">Añadir localización</span></a>
+                <a class="mdl-navigation__link show-modal disconect"><i class="material-icons mdl-list__item-icon">add_location</i><span id="add">Añadir localización</span></a>
                  <dialog class="mdl-dialog">
                     <div class="mdl-dialog__content">
                         <form>

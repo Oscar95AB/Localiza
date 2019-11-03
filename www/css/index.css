@@ -52,11 +52,20 @@ header i {
 .perf {
     height: 85px;
     width: 85px;
-    background-image: url(../img/perf.png);
+/*   background-image: url(../img/perf.png);
     background-size: cover;
-    background-position: center;
+    background-position: center;*/
+		background-color: white;
     border-radius: 3em;
     margin: 0 auto;
+}
+.perf i{
+		position: relative !important;
+    color: grey !important;
+    margin: 0 !important;
+    top: .2em !important;
+    left: -.15em !important;
+    font-size: 3em !important;
 }
 
 .mdl-layout__drawer {

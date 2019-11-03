@@ -1,18 +1,22 @@
 .perf {
     height: 85px;
     width: 85px;
-    background-image: url(../img/perf.png);
-    background-size: cover;
-    background-position: center;
     border-radius: 3em;
     margin: 0 auto;
     left: 39%;
     position: absolute;
+	  background-color: white;
 }
-
-.perf i {
-    margin-left: 1.5em;
-    margin-top: 1em;
+.perf i:nth-child(1){
+	 background-color: transparent !important;
+    color: #ff4081 !important;
+	margin: .55em;	
+	    font-size: 4em;
+    margin: .25em;
+}
+.perf i:nth-child(2) {
+    margin-left: 1em;
+    margin-top: -1em;
     background-color: transparent !important;
     color: #ff4081 !important;
     opacity: .8;

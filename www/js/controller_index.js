@@ -22,14 +22,8 @@
  function dialogForm() {
      var dialog = document.getElementsByTagName('dialog');
      var showModalButton = document.getElementsByClassName('show-modal');
-	 	 
-	 	 if( sessionStorage.getItem('id') == undefined ){
-			 registrarDialog(dialog[0], showModalButton[0]);
-		 }else{
-			 
-		 }
-	 	
-     for(var i = 1; i<dialog.length;i++){
+
+     for(var i = 0; i<dialog.length;i++){
 			 
 					 registrarDialog(dialog[i], showModalButton[i]); 
      }
@@ -135,6 +129,18 @@ function rellenaLista(id, dir, val, dist, pos){
 }
 
  $( document ).ready(function() {
+	 
+	 //	Comprobaciones de la pagina
+	 	if(sessionStorage.getItem('nombre') == null || sessionStorage.getItem('nombre') == "undefined"){
+			$('.perf i').text('https');
+				$('.disconect').css('display','none');
+		}else{
+				$('.perf i').text(sessionStorage.getItem('icono_select'));
+			$('#name').empty().text(sessionStorage.getItem('nombre'));
+				
+		}
+
+	 	// 
      posicionaLista();
      initMap();
      dialogForm();

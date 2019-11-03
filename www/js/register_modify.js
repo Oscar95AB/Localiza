@@ -1,4 +1,7 @@
 function iniciar(){
+	
+	 perfilOuser();
+	
 	select_icon();
 //	perfilOuser();
 	perf_app();
@@ -11,9 +14,12 @@ function select_icon(){
 
 		lista[i].addEventListener('click', function(){
 			for(var i = 0; i<lista.length;i++){
-			lista[i].className = ''; 
-		}
+				lista[i].className = ''; 
+			}
 			this.className = 'active';
+			
+			//$('.change_photo a i')[0].innerHTML = '';
+			$('.change_photo a i')[0].innerHTML = this.firstChild.firstChild.innerHTML;
 		});
 	}
 }
@@ -38,20 +44,30 @@ function perfilOuser(){
 		var nombre = sessionStorage.getItem('nombre');
 		var apellido = sessionStorage.getItem('apellido');
 		var icono = sessionStorage.getItem('icono');
+		var icono_select = sessionStorage.getItem('icono_select');
 		var sex = sessionStorage.getItem('sex');
+		console.log(nombre);
 	}else{
-		
+		console.log('hola');
 	}
 	
-	//Rellenamos la pagina
-	//Quitamos la clase active a los iconos
-	var elementos = document.getElementsByTagName('li');
-	elementos[0].classList.remove('active');
-	elementos[icono].classList.add('active');
+	//Rellenamos Datos
+	var nom_active = $('#perf_form div')[0];
+	nom_active.className += ' is-dirty';
+	var nom = $('#user');
+	nom.val(nombre);
+
+	var ape_active = $('#perf_form div')[1];
+	ape_active.className += ' is-dirty';
+	var ape = $('#apel');
+	ape.val(apellido);
 	
-	var nom = document.getElementById('name');
-	nom.value= nombre;
-	nom.disabled = true;
+	
+	$('.change_photo a i')[0].append(icono_select);
+	
+	$('#iconos li')[icono-1].className = 'active';
+	
+	
 	
 	
 	
@@ -59,4 +75,4 @@ function perfilOuser(){
 	
 	
 }
-snackbarContainer.MaterialSnackbar.showSnackbar(data);
+//snackbarContainer.MaterialSnackbar.showSnackbar(data);
