@@ -5,18 +5,29 @@
     <title>Busca Localización</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!--<link rel="shortcut icon" href="/favicon.ico" />
-         <link rel="alternate" title="Pozolería RSS" type="application/rss+xml" href="/feed.rss" />-->
-	<script src="vendor/Jquery/jquery-1.8.2.min.js"></script>
-    <link rel="stylesheet" href="vendor/mdl/material.min.css">
+	
+    
+   
+   
+	
+		<!-- SCRIPTS componentes -->
+		<script src="vendor/Jquery/jquery-1.8.2.min.js"></script>
     <script src="vendor/mdl/material.min.js"></script>
-    <script src="js/perfil.js"></script>
-    <script src="js/register_modify.js"></script>
-    <link rel="stylesheet" href="vendor/mdl/material.light_blue-light_green.min.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-    <link href='http://fonts.googleapis.com/css?family=Roboto:400,300,300italic,500,400italic,700,700italic' rel='stylesheet' type='text/css'>
+	  <!-- CSS Componentes -->
+		<link rel="stylesheet" href="vendor/mdl/material.min.css">
+		<link rel="stylesheet" href="vendor/iconfont/material-icons.css">
+	  <!-- CSS -->
     <link rel="stylesheet" href="css/comun.css">
     <link rel="stylesheet" href="css/perfil.css">
+
+		
+		<!-- REST -->
+		<script type="text/javascript" src="js/serviciosRest.js"></script>
+		<script type="text/javascript" src="js/perfil/rest_perfil.js"></script>
+    <!-- SCRIPTS -->
+		<script src="js/perfil.js"></script>
+    <script src="js/controller_user.js"></script>
+
 </head>
 
 <body onload = "iniciar();">
@@ -73,64 +84,14 @@
         <div class="comentarios">
             <h1>Últimos comentarios: </h1>
 
-            <ul class="demo-list-two mdl-list">
-                <li class="comentario">
-                    <a class="link_ficha" data-toggle="ficha_uno">
-                        <span class="mdl-list__item-primary-content">
-                              <i class="material-icons mdl-list__item-avatar">where_to_vote</i>
-                              <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
-                          </span>
-                        <span class="mdl-list__item-secondary-content">
-                              <span class="mdl-list__item-secondary-action" href="#">
-                                <i class="material-icons" style="color: #F6D681;"> star </i>
-                                <i class="material-icons" style="color: #F6D681;"> star </i>
-                                <i class="material-icons" style="color: #F6D681;"> star </i>
-                                <i class="material-icons" style="color: #F6D681;"> star </i>
-                                <i class="material-icons" style="color: #F6D681;"> star </i>
-                              </span>
-                        </span>
-                    </a>
-                </li>
-                <li class="comentario">
-                    <a class="link_ficha" data-toggle="ficha_uno">
-                        <span class="mdl-list__item-primary-content">
-                              <i class="material-icons mdl-list__item-avatar">where_to_vote</i>
-                              <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.</p>
-                          </span>
-                        <span class="mdl-list__item-secondary-content">
-                              <span class="mdl-list__item-secondary-action" href="#">
-                                <i class="material-icons" style="color: #F6D681;"> star </i>
-                                <i class="material-icons" style="color: #F6D681;"> star </i>
-                                <i class="material-icons" style="color: #757575;opacity:0.7;"> star </i>
-                                <i class="material-icons" style="color: #757575;opacity:0.7;"> star </i>
-                                <i class="material-icons" style="color: #757575;opacity:0.7;"> star </i>
-                              </span>
-                        </span>
-                    </a>
-                </li>
-                <li class="comentario">
-                    <a class="link_ficha" data-toggle="ficha_uno">
-                        <span class="mdl-list__item-primary-content">
-                              <i class="material-icons mdl-list__item-avatar">where_to_vote</i>
-                              <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
-                          </span>
-                        <span class="mdl-list__item-secondary-content">
-                              <span class="mdl-list__item-secondary-action" href="#">
-                                <i class="material-icons" style="color: #F6D681;"> star </i>
-                                <i class="material-icons" style="color: #757575;opacity:0.7;"> star </i>
-                                <i class="material-icons" style="color: #757575;opacity:0.7;"> star </i>
-                                <i class="material-icons" style="color: #757575;opacity:0.7;"> star </i>
-                                <i class="material-icons" style="color: #757575;opacity:0.7;"> star </i>
-                              </span>
-                        </span>
-                    </a>
-                </li>
-                <li class="icono">
+            <ul class="demo-list-two mdl-list" id="comentarios">
+                
+                <!--<li class="icono">
                     <i class="material-icons"> expand_more </i>
-                </li>
+                </li>-->
             </ul>
         </div>
-
+	</div>
 </body>
 
 </html>

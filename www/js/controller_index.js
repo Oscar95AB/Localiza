@@ -68,7 +68,7 @@ function rellenaLista(id, dir, val, dist, pos){
 		id2='cercano';
 		cerc_val = 'Más cercano';
 	}else if(pos == 1){
-		id='valorado';
+		id2='valorado';
 		cerc_val = 'Mejor valorado';
 	}
 	
@@ -102,7 +102,7 @@ function rellenaLista(id, dir, val, dist, pos){
           })
         ).append(
 				$('<span>',{
-            'text':dir.toUpperCase().substr(0,30) 
+            'text':dir.substr(0,18) 
           })
 				).append(
 				$('<span>',{
@@ -133,11 +133,25 @@ function rellenaLista(id, dir, val, dist, pos){
 	 //	Comprobaciones de la pagina
 	 	if(sessionStorage.getItem('nombre') == null || sessionStorage.getItem('nombre') == "undefined"){
 			$('.perf i').text('https');
-				$('.disconect').css('display','none');
+			$('.disconect').css('display','none');
+			
 		}else{
-				$('.perf i').text(sessionStorage.getItem('icono_select'));
+			$('.perf i').text(sessionStorage.getItem('icono_select'));
 			$('#name').empty().text(sessionStorage.getItem('nombre'));
+			$('#logout').on("click",function(){
 				
+				
+				
+				sessionStorage.setItem('id', undefined);
+				sessionStorage.setItem('nombre', undefined);
+				sessionStorage.setItem('apellido', undefined);
+				sessionStorage.setItem('icono', undefined);
+				sessionStorage.setItem('icono_select', undefined);
+				sessionStorage.setItem('sex', undefined);
+				$('.perf i').text('https');
+				$('.disconect').css('display','none');
+				
+			})
 		}
 
 	 	// 

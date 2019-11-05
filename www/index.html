@@ -22,18 +22,15 @@
     <link rel="stylesheet" href="vendor/iconfont/material-icons.css">
     <link rel="stylesheet" href="vendor/leaflet/leaflet.css">
     <link rel="stylesheet" href="css/index.css">	
+		
+		<!-- REST -->
+		<script type="text/javascript" src="js/serviciosRest.js"></script>
+		<script type="text/javascript" src="js/index/rest_index.js"></script>
     <!-- SCRIPTS -->
 		<script src="js/index/lang.js"></script>
   	<script src="js/index/map.js"></script>
 		<script src="js/index/tutorial.js"></script>
     <script src="js/controller_index.js"></script>
-		<!-- REST -->
-		<script type="text/javascript" src="js/serviciosRest.js"></script>
-
-		
-    
-		
-	
 
     <!--Leaflet Plugin-->
     <script src="https://unpkg.com/leaflet.markercluster@1.3.0/dist/leaflet.markercluster.js"></script>
@@ -63,9 +60,9 @@
 										onclick="idioma('en');" id="en">Inglés</li>
                     <li class="mdl-menu__item" onclick="idioma('fr');" id="fr">Francés</li>
                 </ul>
-                <a><i class="material-icons mdl-list__item-avatar disconect">power_off</i></a>
+                <a id="logout"><i class="material-icons mdl-list__item-avatar disconect">power_off</i></a>
                 <div class="perf"><i class="material-icons mdl-list__item-avatar"></i> </div>
-							<span id="welcome">Bienvenid@ </span><span class="salto" id="name">
+							<span id="welcome">Bienvenid@ </span><span class="salto disconect" id="name">
             </span>
             </div>
             <nav class="mdl-navigation">
@@ -121,7 +118,15 @@
                 <a class="mdl-navigation__link show-modal"><i class="material-icons mdl-list__item-icon">help_outline</i><span id="help">Ayuda</span></a>
                  <dialog class="mdl-dialog">
                     <div class="mdl-dialog__content">
-                       <p >Registrate</p>
+                       <p >El tutorial dura aproximadamente 30s ¿Quieres continuar?</p>
+											<p>iconos con lo que hace</p>
+											<ul>
+												<li>Confirmado</li>
+												<li>No confirmado</li>
+												<li>otro</li>
+												<li>otro</li>
+											</ul>
+											<button type="button" class="mdl-button mdl-button--fab mdl-js-button mdl-js-ripple-effect" onclick="tutorial();"><i class="material-icons">send</i></button>
                             <button type="button" class="mdl-button mdl-button--fab mdl-js-button mdl-js-ripple-effect close"><i class="material-icons">close</i></button>
                             
                     </div>

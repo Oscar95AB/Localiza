@@ -59,6 +59,15 @@
     display: block;
     font-size: 26px;
 }
+.comentario .name{
+	    float: left;
+    color: black;
+    font-size: 1em;
+    position: absolute;
+    margin-top: 2.7em;
+    text-transform: capitalize;
+    text-decoration: underline;
+}
 
 .mdl-list__item-secondary-action {
     padding-bottom: .5em;
