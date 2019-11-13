@@ -38,7 +38,17 @@ header i {
     right: 6%;
 }
 
-
+.direccion ul{
+	    list-style: none;	
+    padding-left: 0;
+    background-color: white;
+    margin-top: 2em;
+    text-align: left;
+}
+.direccion ul li{
+	  padding: 1em;
+    border-bottom: 1px solid;
+}
 /*menú lateral*/
 
 .mdl-layout__drawer-button {
@@ -370,4 +380,10 @@ dialog a {
 
 #mensaje p{
 	padding: 1em;
+}
+
+/*UBICACION*/
+
+.msjError.ubi{
+	float: left;
 }

@@ -62,9 +62,11 @@ function accionFormulario(id){
 				
 				tomaComentario(idC, idP, texto, estrellas);
 				//Añadimos el comentario a la lista
-				rellenaComentariosChino(texto, idP, nombre,sex,estrellas);
+				var icono = sessionStorage.getItem('icono_select');
+				rellenaComentariosChino(texto, idP, nombre,sex,estrellas,icono);
 				
 			}else{
+				
 				$('.msjError').addClass('mostrarerr');
 				$('.msjError').empty().html(mensaje_error);
 				mensaje_error = '';

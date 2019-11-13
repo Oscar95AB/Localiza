@@ -13,6 +13,14 @@
 		<script src="vendor/Jquery/jquery-1.8.2.min.js"></script>
     <script src="vendor/mdl/material.min.js"></script>
     <script src="vendor/leaflet/leaflet.js"></script>
+	  <script src="vendor/leaflet/geocoder/Control.geocoder.js"></script>
+	
+	<script src="https://unpkg.com/esri-leaflet@2.3.2/dist/esri-leaflet.js" integrity="sha512-6LVib9wGnqVKIClCduEwsCub7iauLXpwrd5njR2J507m3A2a4HXJDLMiSZzjcksag3UluIfuW1KzuWVI5n/cuQ==" crossorigin="">
+	</script>
+		<link rel="stylesheet" href="https://unpkg.com/esri-leaflet-geocoder@2.3.2/dist/esri-leaflet-geocoder.css" integrity="sha512-IM3Hs+feyi40yZhDH6kV8vQMg4Fh20s9OzInIIAc4nx7aMYMfo+IenRUekoYsHZqGkREUgx0VvlEsgm7nCDW9g==" crossorigin="">
+	
+		<script src="https://unpkg.com/esri-leaflet-geocoder@2.3.2/dist/esri-leaflet-geocoder.js" integrity="sha512-8twnXcrOGP3WfMvjB0jS5pNigFuIWj4ALwWEgxhZ+mxvjF5/FBPVd5uAxqT8dd2kUmTVK9+yQJ4CmTmSg/sXAQ==" crossorigin="">
+	</script>
 	<!-- CSS Componentes -->
     <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.3.0/dist/MarkerCluster.css" />
     <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.3.0/dist/MarkerCluster.Default.css" />
@@ -36,6 +44,10 @@
     <script src="https://unpkg.com/leaflet.markercluster@1.3.0/dist/leaflet.markercluster.js"></script>
     <script src="vendor/leaflet/routing/leaflet-routing-machine.min.js"></script>
 	
+		
+	
+	
+	
 	
 
 </head>
@@ -45,7 +57,7 @@
     <header>
         <label class="mdc-floating-label" for="my-text-field">Buscar</label>
         <input type="text" placeholder="Buscar dirección" id="buscador">
-        <a href="#" onclick="direccion_buscador()"><i class="material-icons">search</i></a>
+        <a onclick="direccion_buscador()"><i class="material-icons">search</i></a>
     </header>
     <div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer">
         <!--  Menú lateral -->
@@ -74,6 +86,7 @@
                             <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                                 <input class="mdl-textfield__input" type="text" id="user" pattern="[A-Z,a-z]*"/>
                                 <label class="mdl-textfield__label" for="user" id="log_user">Usuario</label>
+															<span class="mdl-textfield__error">Usuario/contrasena inválido</span>
                             </div>
                             <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                                 <input class="mdl-textfield__input" type="text" id="password" />
@@ -134,22 +147,35 @@
                 <a class="mdl-navigation__link show-modal disconect"><i class="material-icons mdl-list__item-icon">add_location</i><span id="add">Añadir localización</span></a>
                  <dialog class="mdl-dialog">
                     <div class="mdl-dialog__content">
-                        <form>
-                        </form>
-                            <form action="perfil.html">
+                            <form id="form_ubi">
                             <h3 id="add_add">Añade</h3>
                             <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                                <input class="mdl-textfield__input" type="text" id="user" disabled/>
-                                <label class="mdl-textfield__label" for="user" id="calle">Calle</label>
+                                <input class="mdl-textfield__input" type="text" id="street"/>
+                                <label class="mdl-textfield__label" for="street" id="calle">Calle</label>
+																<span class="mdl-textfield__error">Introduce una calle</span>
                             </div>
+														 <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label" style="width:30%;float:left;">
+                                <input class="mdl-textfield__input" type="text" id="open"/>
+                                <label class="mdl-textfield__label" for="open" id="h_open">Apertura</label>
+                            </div>
+														 <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label" style="width:30%;float:right;">
+                                <input class="mdl-textfield__input" type="text" id="close"/>
+                                <label class="mdl-textfield__label" for="close" id="h_close">Cierre</label>
+                            </div>
+														<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+															<textarea class="mdl-textfield__input"  type="text" id="comentario"></textarea>
+															<label class="mdl-textfield__label" for="comentario">¿Qué te ha parecido?</label>
+															<span class="mdl-textfield__error">Longitug entre 1-30 caracteres</span>
+													</div>
                         <div>
-                            <button type="submit" class="mdl-button mdl-button--fab mdl-js-button mdl-js-ripple-effect" disabled><i class="material-icons" >send</i></button>
-                            <button type="button" class="mdl-button mdl-button--fab mdl-js-button mdl-js-ripple-effect"><i class="material-icons">gps_fixed</i></button>
+                            <button id="send" class="mdl-button mdl-button--fab mdl-js-button mdl-js-ripple-effect"><i class="material-icons" >send</i></button>
+                            <button type="button" id="btn-gps" class="mdl-button mdl-button--fab mdl-js-button mdl-js-ripple-effect"><i class="material-icons">gps_fixed</i></button>
                            
                         </div>
 
                         </form>     
-                         <button type="button" class="mdl-button mdl-button--fab mdl-js-button mdl-js-ripple-effect close"><i class="material-icons">close</i></button>      
+                         <button type="button" class="mdl-button mdl-button--fab mdl-js-button mdl-js-ripple-effect close"><i class="material-icons">close</i></button>     
+											<div class="msjError ubi"></div> 
                     </div>
                 </dialog>
             </nav>

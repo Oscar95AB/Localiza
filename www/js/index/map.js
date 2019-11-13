@@ -34,7 +34,9 @@
                       }
 
                     });
- 
+
+ 										geocoder = new L.Control.Geocoder.Nominatim();
+										geocoderInverse = new L.esri.Geocoding.reverseGeocode();
        /*         var indicaciones = L.Control.extend({
 
                       options: {
@@ -85,7 +87,7 @@
      map.on('locationfound', onLocationFound);
      map.on('locationerror', onLocationError);
 
-                    map.addControl(new geolocate());
+                    
                //   map.addControl(new indicaciones());
                     map.locate({setView: true});
 	 
@@ -132,25 +134,33 @@ var route;
  function resetRoute() {
     route.setWaypoints([(0,0), (0,0)]);
  }
-var ubicacion_actual;
- function onLocationFound(e) {
 
-	 		
-     actualLoc = L.marker(e.latlng).addTo(map)
-         .bindPopup("Está actualmente aquí");
+var ubicacion_actual;
+
+ function onLocationFound(e) {
+	 ubicacion_actual = L.markerClusterGroup();
+	 map.addControl(new geolocate());
+     	
+	 var marker = L.marker(e.latlng).bindPopup("Está actualmente aquí");
+	 ubicacion_actual.addLayer(marker);
 	 
+   map.addLayer(ubicacion_actual);
 	 //Guardamos la ubicacion actual
 	 window.localStorage.setItem('alng', e.latlng.lng);
 	 window.localStorage.setItem('alat', e.latlng.lat);
-	 
 	 
 	 allItemsPosible();
 
  }
 
  function onLocationError(e) {
-
-     alert(e.message);
+	 	 //Guardamos la ubicacion actual
+	 		window.localStorage.setItem('alng', 0);
+	 		window.localStorage.setItem('alat', 0);
+	 		
+	 		allItemsPosible();
+	 
+     console.error(e.message);
  }
 
 // setup a marker group
@@ -202,41 +212,41 @@ var markers = null;
  }
 
  function direccion_buscador() {
-     var entrada = document.getElementById('buscador');
-       
-     $.getJSON('http://nominatim.openstreetmap.org/search?format=json&limit=5&q=' + entrada.value, function(data) {
-      var items = [];
-         $.each(data, function(key, val) {
-           
-             bb = val.boundingbox;
-             items.push(bb[0]);
-             items.push(bb[2]);   
-             items.push(bb[1]);
-             items.push(bb[3]);
-         });
-
-            console.log(items);
-
-            if(items.length == 0){
-                alert('No se han encontrado resultados');
-            }else if(items.length == 4){
-                console.log(Math.abs(parseFloat(items[0])-parseFloat(items[2])));
-                if (Math.abs(parseFloat(items[0])-parseFloat(items[2])) > 0.003) {
-                    map.setView([items[0],items[3]]);
-                    addIcons([items[0],items[3]]);
-                }else if (Math.abs(parseFloat(items[0])-parseFloat(items[2])) < 0.001) {
-                    map.setView([items[2],items[3]]);
-                    addIcons([items[2],items[3]]);
-                }else{
-                    map.setView([items[0],items[3]]);
-                    addIcons([items[0],items[3]]);
-                }
-               
-            }else{
-                alert('Hay más de un resultado, acote la búsqueda');
-            }         
-     });
+     var entrada = (document.getElementById('buscador').value)+' Madrid';
+	 		geocoder.geocode(entrada, function(results) {  
+				console.log(results);
+				anadir_menu_opciones(results);
+			});
+	 return false;
  }
+
+var ubicacion_mapa;
+function anadir_menu_opciones(results){
+	var lista;
+	if(results.length == 0){
+		console.error('No se ha encontrado al dirección');
+	}else{
+		//Obtenemos la ubicacion
+		latLng= new L.LatLng(results[0].center.lat, results[0].center.lng);
+		console.log(latLng.lat);
+				console.log(latLng.lng);
+				map.setView(latLng,15);
+		//Guardamos la ubicacion actual
+	 window.localStorage.setItem('alng', latLng.lng);
+	 window.localStorage.setItem('alat', latLng.lat);
+		//Eliminamos marcadores
+		map.removeLayer(markers);
+		map.removeLayer(ubicacion_actual);
+		//Añadimos marcadores
+		 ubicacion_mapa = L.markerClusterGroup();
+		actualLoc = L.marker(latLng).bindPopup("Está actualmente aquí");
+		ubicacion_mapa.addLayer(actualLoc);
+	  map.addLayer(ubicacion_mapa);
+		
+		allItemsPosible();
+		 
+	}
+}
 
 
 

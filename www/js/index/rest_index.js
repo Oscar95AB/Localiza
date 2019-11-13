@@ -51,47 +51,54 @@ function dameLoc(){
 			dataType:'json',
 			crossDomain: true,
 		//	contentType: 'application/json; charset=utf-8'
-    }).success(function(data) {		
-			resetMark();
-			$('#lista-abajo').empty();
-			
-			//Ordenamos primero menor distancia, segundo mejor valorado
-			for(var i = 1; i<data.length; i++){
-				for(var j = 1;j<(data.length-i);j++)
-			{
-				if(parseFloat(data[j].val)<parseFloat(data[j+1].val))
+    }).success(function(data) {
+			if(data.length == 0){
+				$('#lista-abajo').empty();
+				 rellenaLista('-1', 'No hay nada...',0, '¿Conoces algo?',-1);
+				 posicionaLista();
+				 map.setView([40.41688512548694,-3.7034839748992567]);
+			}else{
+				resetMark();
+				$('#lista-abajo').empty();
+
+				//Ordenamos primero menor distancia, segundo mejor valorado
+				for(var i = 1; i<data.length; i++){
+					for(var j = 1;j<(data.length-i);j++)
 				{
-					k=data[j+1];
-					data[j+1]=data[j];
-					data[j]=k;
+					if(parseFloat(data[j].val)<parseFloat(data[j+1].val))
+					{
+						k=data[j+1];
+						data[j+1]=data[j];
+						data[j]=k;
+					}
 				}
-			}
-				
-			}
-			
-			//Ordenamos los demás
-			for(var i = 2; i<data.length; i++){
-				for(var j = 2;j<(data.length-1);j++)
-			{
-				if(parseFloat(data[j].distance)>parseFloat(data[j+1].distance))
+
+				}
+
+				//Ordenamos los demás
+				for(var i = 2; i<data.length; i++){
+					for(var j = 2;j<(data.length-1);j++)
 				{
-					k=data[j+1];
-					data[j+1]=data[j];
-					data[j]=k;
+					if(parseFloat(data[j].distance)>parseFloat(data[j+1].distance))
+					{
+						k=data[j+1];
+						data[j+1]=data[j];
+						data[j]=k;
+					}
 				}
+
+				}
+
+				//Añadimos iconos del servidor
+				for(var i = 0; i<data.length; i++){
+					rellenaLista(data[i].id, data[i].dir,data[i].val, data[i].distance,i);
+					addIcons([data[i].lat,data[i].lon], data[i].dir, data[i].hora);
+				}
+				posicionaLista();
+
+
 			}
-				
-			}
-			
-			//Añadimos iconos del servidor
-			for(var i = 0; i<data.length; i++){
-				rellenaLista(data[i].id, data[i].dir,data[i].val, data[i].distance,i);
-				addIcons([data[i].lat,data[i].lon], data[i].dir, data[i].hora);
-			}
-			posicionaLista();
-			
-			
-    })
+		})
 	.fail(function(data) {
     console.error('Llamada AJAX incompleta');
 		console.log(data);
